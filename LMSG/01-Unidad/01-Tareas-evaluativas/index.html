@@ -1,0 +1,85 @@
+<!-- Declaración del doctype en HTML5 -->
+<!DOCTYPE html>
+<!-- Declaración del idioma de nuestra web -->
+<html lang="es">
+  <head>
+    <!-- Codificación de caracteres -->
+    <meta charset="utf-8" />
+    <meta name="description" content="curriculum vitae" />
+    <meta name="keywords" content="HTML5" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unidad Didactica 1</title>
+  </head>
+  <body align="center">
+    <h1 align="center">CURRICULUM VITAE</h1>
+    <img
+      src="https://media.giphy.com/staff/danny-chang-bjTGkNCLouCm.gif"
+      alt="gif de un avatar."
+      width="500px"
+      height="500px"
+    />
+
+    <!-- Tabla para organizar los datos personales-->
+    <h2><u>DATOS PERSONALES</u></h2>
+    <table align="center">
+      <tr align="left">
+        <td><b> Nombre:</b></td>
+        <td align="left">Jorge Martin</td>
+      </tr>
+      <tr align="left">
+        <td><b>Apellidos:</b></td>
+        <td align="left">Del Pino Contreras</td>
+      </tr>
+      <tr align="left">
+        <td><b>Teléfono:</b></td>
+        <td align="left">
+          <!-- tel: abrira la apliacion de telefono que tengamos en nuestro pc -->
+          <a href="tel:+34636602184"
+            ><b><i>636602184</i></b></a
+          >
+        </td>
+      </tr>
+      <tr align="left">
+        <td><b>Dirección:</b></td>
+        <td>Plaza de la unión 2</td>
+      </tr>
+      <tr align="left">
+        <td><b>Email:</b></td>
+        <td align="left">
+          <!-- mailto: nos sirve para que al clicar en el correo se pueda abrir automaticamente la apliacion que tengamos por defecto de correo en nuestro pc -->
+          <a href="mailto:jdelpino@birt.eus"
+            ><b><i>jdelpino@birt.eus</i></b>
+          </a>
+        </td>
+      </tr>
+    </table>
+
+    <h2><u>CONOCE MAS SOBRE MI</u></h2>
+
+    <!-- tabla para creda para centrar la lista ordenda -->
+    <table align="center">
+      <tr>
+        <td>
+          <ol>
+            <li>
+              <!-- enlace para redirigirnos a una pagina interna de la web -->
+              <a href="pages/exp-academica-laboral.html"
+                >Experiencia académica-laboral</a
+              >
+            </li>
+            <li align="left">
+              <!-- enlace para redirigirnos a una pagina interna de la web -->
+              <a href="pages/aficiones.html">Aficiones</a>
+            </li>
+          </ol>
+        </td>
+      </tr>
+    </table>
+
+    <!-- enlace para abrir el pdf del curriculum en otra ventana y posteriormente
+    descargarla -->
+    <a href="download/curriculum-creativo.pdf" target="_blank"
+      >Descargar Curriculum</a
+    >
+  </body>
+</html>
