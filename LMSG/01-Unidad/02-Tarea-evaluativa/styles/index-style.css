@@ -1,0 +1,86 @@
+/*
+Autor: Jorge Martin Del Pino Contreras
+Asignatura: LMGSI
+Unidad: UD 1
+Tarea: Tarea evaluativa 2 - Primer sitio web con formato
+fecha: 27/10/2023
+*/
+
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+#foto-perfil {
+  width: 100%;
+  border-radius: 20%;
+}
+
+.contenedores {
+  display: inline-block;
+  padding: 1%;
+  margin: 20px;
+  width: 40%;
+}
+
+#contenedor-1 {
+  background-color:gray;
+  border-radius: 20%;
+}
+
+#contenedor-personal {
+  /* background-color: blueviolet; */
+  padding: 5%;
+  display: inline-block;
+  margin-top: -20%;
+}
+
+#contenedor-sobre-mi {
+  /* background-color: aqua; */
+  padding: 5%;
+  display: inline-block;
+}
+
+#contenedor-curriculum {
+  /* background-color: blue; */
+  font-size: 30px;
+  padding-top: 10%;
+}
+
+.negrita {
+  font-weight: 700;
+  font-size: 22px;
+  text-align: left;
+}
+
+.datos {
+  font-size: 20px;
+  text-align: right;
+}
+
+h1 {
+  font-size: 45px;
+}
+
+h2 {
+  font-size: 35px;
+  margin-bottom: 15%;
+  text-decoration: underline;
+}
+
+.enlaces {
+  font-size: 25px;
+}
+
+table {
+  text-align: center;
+  padding-left: 10%;
+}
+
+table a {
+  display: block;
+  text-align: left;
+}
+
