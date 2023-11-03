@@ -1,89 +1,192 @@
-/******************************************************************************************************************
+ /******************************************************************************************************************
  * 
  * Nombre: Jorge Martin Del Pino Contreras 
  * Fecha: 28/10/2023 
  * Modulo: Programación. 
  * UD1. 
  * Tarea: PROG02 - Tarea evaluativa 01: Programa que crea un simulador de hipotecas a plazo fijo.
- * Autoevaluación: https://docs.google.com/document/d/1KPFIshehQb2mBDWfngPgqkrnEbVzVSoQQSrSzSTrtfA/edit?usp=sharing
- *                 https://youtu.be/f1e1NBOfOgM
- * Descripción del programa: El programa imprime por consola una figura simétrica que tiene forma de torre.
- *                           Y esta torre a su vez esta compuesta por otras figuras o simbolos independientes 
- *                           que de forma conjunta forman la torre.
+ * Autoevaluación: https://docs.google.com/document/d/1W2EmE7Umk1ybRQmYxYO68I9cWeIVDZLJRAkOEzXLfJo/edit?usp=sharing
+ *                 https://youtu.be/luXnMfq8sps
+ * Descripción del programa: El programa imprime por consola una breve introducción de como funciona el simulador de hipoteca.
+ *                           Luego nos pide que ingresemos el prestamo que deseamos solicitar y nos calcula en cuotas 
+ *                           fijas lo que tendremos que pagar y nos lo muestra en forma de tabla. Y despues nos solicita el interes 
+ *                           a aplicar al prestamo y los años en los que lo vamos a pagar para poder calcular las cuotas personalizadas
+ *                           y nos lo muestra en forma de lista ordenada.
  *
  *******************************************************************************************************************/
  
+// Librerias importadas para hacer uso de la clase Scanner y DecimalFormat
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
+ // Creamos la clase. El nombre debe coincidir con el del fichero .java
 public class SimuladorHipoteca {
+
+   static final int ANIOS_LIMITE_CUOTA_FIJA = 25;
+   static final double INTERES_LIMITE_CUOTA_FIJA = 5.0;
+   static final String TITULO_PRIMERA_OPCION = "PRIMERO";
+   static final String TITULO_SEGUNDA_OPCION = "SEGUNDO";
+   static final String SIMBOLO = "%";
    
+    // Creamos método main. Siempre debe existir y siempre se define igual.
    public static void main(String[] args) {
       Scanner sc = new Scanner(System.in);
-      mostrarMensajeIntroductorio();
-      primero(sc);     
+      calcularHipoteca(sc);
    }
    
+    /* Método que calcula la hipoteca tanto por cuotas fijas como por cuotas personalizadas. 
+     * @param sc objeto que usamos para leer valores del teclado
+     */
+   public static void calcularHipoteca(Scanner sc) {
+      double cantidadSolicitada;
+      mostrarMensajeIntroductorio();
+      System.out.print("Introduce la cantidad solicitada para el préstamo: ");
+      cantidadSolicitada = sc.nextDouble();
+      primeraOpcion(cantidadSolicitada);
+      segundaOpcion(sc, cantidadSolicitada);
+   }
+   
+    // Método que muestra una introducción al programa.
    public static void mostrarMensajeIntroductorio() {
       String cadenaRepetida = "Solicita el monto del préstamo (euros)";
       System.out.println("Este es un simulador de hipoteca");
-      System.out.println("PRIMERO");
+      System.out.println(TITULO_PRIMERA_OPCION);
       System.out.println(cadenaRepetida + " e imprime una tabla con diferentes opciones según el interés y plazo");
-      System.out.println("SEGUNDO");
-      System.out.println(cadenaRepetida +", la tasa de interés anual a pagar (%) y el plazo (años)");
+      System.out.println(TITULO_SEGUNDA_OPCION);
+      System.out.println(cadenaRepetida +", la tasa de interés anual a pagar (" + SIMBOLO + ") y el plazo (años)");
       System.out.println("Calcula para cada año, el capital pendiente y la cuota a pagar, intereses y amortización\n");
    }
    
-   public static void primero(Scanner sc) {
-      System.out.print("Introduce la cantidad solicitada para el préstamo: ");
-      int cantidadSolicitada = sc.nextInt();
-      mostrarCuotasFijas(cantidadSolicitada);
-      segundo(sc, cantidadSolicitada);
+    /* Muestra las cuotas fijas a pagar.
+     * 
+     * @param cantidadSolicitada cantidad del prestamo solicitado  
+     */
+   public static void primeraOpcion(double cantidadSolicitada) {
+      System.out.println("\n\n" + TITULO_PRIMERA_OPCION);
+      calcularCuotasFijas(cantidadSolicitada);
    }
    
-   public static void segundo(Scanner sc, int cantidad) {
-      System.out.print("\nIntroduce el interés anual que se aplicará al préstamo en %: ");
-      double interes = sc.nextDouble();
-      System.out.print("Introduce el número de años que va a durar el préstamo: ");
-      int anios = sc.nextInt();
-      mostrarCuotasPersonalizadas(cantidad, interes, anios);
+    /* Muestra las cuotas a pagar pero personalizado para cada caso.
+     * 
+     * @param sc objeto que usamos para leer valores del teclado
+     * @param cantidad el prestamo solicitado 
+     */
+   public static void segundaOpcion(Scanner sc, double cantidad) {
+      double interes;
+      int anios;
+      System.out.print("\n" + TITULO_SEGUNDA_OPCION);
+      System.out.print("\nIntroduce el interés anual que se aplicará al préstamo en " + SIMBOLO + ": ");
+      interes = sc.nextDouble();
+      System.out.print("\nIntroduce el número de años que va a durar el préstamo: ");
+      anios = sc.nextInt();
+      System.out.println();
+      calcularCuotasPersonalizadas(cantidad, interes, anios);
    }
    
-   public static void mostrarCuotasFijas(int cantidad) {
-      System.out.println("\nPRIMERO");
+    /* Calcula las cuotas fijas a pagar.
+     * 
+     * @param cantidad el prestamo solicitado 
+     */
+   public static void calcularCuotasFijas(double cantidad) {
       System.out.println("Estas son las cuotas a pagar para diferentes intereses y plazos");
-      for (int anio = 20; anio <= 25; anio++) {
-         System.out.print(anio + " Años");
-         for (double interes = 3.0; interes <= 5.0; interes += 0.5) {
-            System.out.printf("  %.2f(%.1f%%)  ", cuotaAnual(cantidad, anio, interes), interes);
+      String resultado = "";
+      for (int anio = 20; anio <= ANIOS_LIMITE_CUOTA_FIJA; anio++) {
+         System.out.print(anio + " Años\t");
+         for (double interes = 3.0; interes <= INTERES_LIMITE_CUOTA_FIJA; interes += 0.5) {
+            resultado = roundToTwoDecimals(calcularCuotaAnual(cantidad, anio, interes));
+            System.out.print("\t" + resultado + "(" + interes + SIMBOLO +")");
          }
          System.out.println();
       }
    }
    
-   public static void mostrarCuotasPersonalizadas(int cantidad, double interes, int limiteAnio) {   
+    /* Calcula las cuotas personalizadas a pagar para cada caso.
+     * 
+     * @param cantidad el prestamo solicitado
+     * @param interes el interes aplicado al prestamo
+     * @param limiteAnio el año limite para terminar de pagar el prestamo
+     */
+   public static void calcularCuotasPersonalizadas(double cantidad, double interes, int limiteAnio) {   
       double capitalPendiente = cantidad;
-      for (int numAnio = 1; numAnio <= limiteAnio; numAnio++) {
-         double cuota = cuotaAnual(cantidad, limiteAnio, interes);
-         System.out.println("Año: " + numAnio);
-         System.out.printf("\tCapital Pendiente: %.2f%n", capitalPendiente);
-         System.out.printf("\tCuota Anual: %.2f%n", cuota);
-         System.out.printf("\tIntereses a pagar: %.2f%n", intereses(capitalPendiente, interes));
-         System.out.printf("\tAmortización: %.2f%n", amortizacion(capitalPendiente, cuota, interes));
-         capitalPendiente -= amortizacion(capitalPendiente, cuota, interes);
+      double cuota = calcularCuotaAnual(cantidad, limiteAnio, interes);
+      double amortizacionActual;
+      double intereses;
+      for (int numAnio = 1; numAnio <= limiteAnio; numAnio++) { 
+         amortizacionActual = calcularAmortizacion(capitalPendiente, cuota, interes);
+         intereses = calcularIntereses(capitalPendiente, interes);
+         imprimirDatosCuotasPersonalizadas(numAnio, capitalPendiente, cuota, intereses, amortizacionActual);
+         capitalPendiente -= amortizacionActual;
       }
    }
    
-   public static double cuotaAnual(double prestamo, int duracion, double interes) {
-      double i = interes / 100;
+    /* Imprime los datos de las cuotas personalizadas de forma ordenada.
+     * 
+     * @param numAnio el año en el que se aplican ciertas cuotas, interes, etc
+     * @param capitalPendiente la cantidad de capital que falta por pagar en determinado año
+     * @param cuota la cuota a pagar por el año 
+     * @param intereses el interes a pagar determinado año
+     * @param amortizaciónAcutal la amortización a calcular para determinado año.
+     */
+   public static void imprimirDatosCuotasPersonalizadas(int numAnio, double capitalPendiente, double cuota, double intereses, double amortizacionActual) {
+      System.out.println("Año: " + numAnio);
+      System.out.println("\tCapital Pendiente: " + roundToTwoDecimals(capitalPendiente));
+      System.out.println("\tCuota Anual: " + roundToTwoDecimals(cuota));
+      System.out.println("\tIntereses a pagar: " + roundToTwoDecimals(intereses));
+      System.out.println("\tAmortización: " + roundToTwoDecimals(amortizacionActual));
+   }
+   
+    /* Calcula la cuota anual para las cuotas personalizadas y luego retorna ese valor.
+     *
+     * @param prestamo la cantidad de dinero solicita
+     * @param duración el tiempo limite para terminar de pagar el prestamo
+     * @param interes el interes aplicado al prestamo solicitado
+     * @return cuota Anual calculada apartir de los parametros
+     */
+   public static double calcularCuotaAnual(double prestamo, int duracion, double interes) {
+      double i;
+      i = dividir(interes);
       return (prestamo * i)/(1 - Math.pow((1 + i),-duracion));
    }
    
-   public static double intereses(double capitalPendiente, double interes) {
-      return capitalPendiente * (interes / 100);
+    /* Calcula los intereses para cada año de las cuotas personalizadas y luego retorno ese valor.
+     *
+     * @param capitalPendiente el dinero que falta por pagar un año determinado
+     * @param interes el interes que se aplica al capital pendiente de determinado año
+     * @return el interes calculado con los parametros usados.
+     */
+   public static double calcularIntereses(double capitalPendiente, double interes) {
+      double i;
+      i = dividir(interes);
+      return capitalPendiente * i;
    }
    
-   public static double amortizacion(double capitalPendiente, double cuotaAnual, double interes) {
-      return cuotaAnual - intereses(capitalPendiente, interes);
+    /* Calcula la amortización para las cuotas personalizas y luego retorna ese valor.
+     * 
+     * @param capitalPendiente el dinero que falta por pagar un año determinado
+     * @param cuotaAnual el dinero a pagar por cada año de prestamo
+     * @param interes el interes aplicado al prestamo
+     * @return la amortización calculada apartir de todos los parámetros anteriores
+     */
+   public static double calcularAmortizacion(double capitalPendiente, double cuotaAnual, double interes) {
+      return cuotaAnual - calcularIntereses(capitalPendiente, interes);
+   } 
+   
+    /* Permite redondear cualquier valor a dos decimales y luego retorna ese valor.
+     * 
+     * @param cantidad la cantidad que queremos formaterar a 2 decimales
+     * @return la cantidad recibidad formateada a 2 decimales
+     */
+   public static String roundToTwoDecimals(double cantidad) {
+      DecimalFormat df = new DecimalFormat("0.00");
+      return df.format(cantidad).replace(".",",");
    }
    
+   /* Calula la division del interes entre 100.
+    * 
+    * @param interes el interes aplicado al prestamo.
+    * @return la division entre el interes y 100.
+    */
+   public static double dividir(double interes) {
+      return interes/100;
+   }
 }
