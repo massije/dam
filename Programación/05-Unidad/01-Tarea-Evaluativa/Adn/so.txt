@@ -1,0 +1,69 @@
+Descripción: cure for cancer protein
+Nucleótidos: ATGCCACTATGGTAG
+Contadores: [4, 3, 4, 4]
+Masa (%): [27.3, 16.8, 30.6, 25.3] de 1978.8
+Lista Codones: [ATG, CCA, CTA, TGG, TAG]
+Es proteína: SI
+
+Descripción: captain picard hair growth protein
+Nucleótidos: ATGCCAACATGGATGCCCGATATGGATTGA
+Contadores: [9, 6, 8, 7]
+Masa (%): [30.7, 16.8, 30.5, 22.1] de 3967.5
+Lista Codones: [ATG, CCA, ACA, TGG, ATG, CCC, GAT, ATG, GAT, TGA]
+Es proteína: SI
+
+Descripción: bogus protein
+Nucleótidos: CCATT-AATGATCA-CAGTT
+Contadores: [6, 4, 2, 6]
+Masa (%): [32.3, 17.7, 12.1, 29.9] de 2508.1
+Lista Codones: [CCA, TTA, ATG, ATC, ACA, GTT]
+Es proteína: NO
+
+Descripción: michael jordan mad hops protein
+Nucleótidos: ATGAG-ATC-CGTGATGTGGG-AT-CCTA-CT-CATTAA
+Contadores: [9, 6, 8, 10]
+Masa (%): [24.6, 13.5, 24.5, 25.3] de 4942.9
+Lista Codones: [ATG, AGA, TCC, GTG, ATG, TGG, GAT, CCT, ACT, CAT, TAA]
+Es proteína: SI
+
+Descripción: paris hilton phony protein
+Nucleótidos: ATGC-CAACATGGATGCCCTAAG-ATATGGATTAGTGA
+Contadores: [12, 6, 9, 9]
+Masa (%): [32.6, 13.4, 27.3, 22.6] de 4974.3
+Lista Codones: [ATG, CCA, ACA, TGG, ATG, CCC, TAA, GAT, ATG, GAT, TAG, TGA]
+Es proteína: SI
+
+Descripción: jimi hendrix guitar talent protein
+Nucleótidos: ATGATAATTAGTTTTAATATCAGA-CTGTAA
+Contadores: [12, 2, 4, 12]
+Masa (%): [40.0, 5.5, 14.9, 37.1] de 4049.5
+Lista Codones: [ATG, ATA, ATT, AGT, TTT, AAT, ATC, AGA, CTG, TAA]
+Es proteína: NO
+
+Descripción: admiral grace murray hopper protein
+Nucleótidos: ATGC-AATT--GC-----TCGA--------TTAG
+Contadores: [5, 3, 4, 6]
+Masa (%): [17.0, 8.4, 15.2, 18.9] de 3964.1
+Lista Codones: [ATG, CAA, TTG, CTC, GAT, TAG]
+Es proteína: NO
+
+Descripción: tyler durden's brain protein
+Nucleótidos: ATGATACCTATGAGTAATGTGGACCATATCCAAACTATAGGCATTGTCGGACCAACGATCGATTGGTTATACTGA
+Contadores: [24, 14, 16, 21]
+Masa (%): [32.9, 15.8, 24.6, 26.7] de 9843.8
+Lista Codones: [ATG, ATA, CCT, ATG, AGT, AAT, GTG, GAC, CAT, ATC, CAA, ACT, ATA, GGC, ATT, GTC, GGA, CCA, ACG, ATC, GAT, TGG, TTA, TAC, TGA]
+Es proteína: SI
+
+Descripción: mini me growth hormone
+Nucleótidos: ATGGGACGCTGA
+Contadores: [3, 2, 5, 2]
+Masa (%): [24.8, 13.6, 46.3, 15.3] de 1633.4
+Lista Codones: [ATG, GGA, CGC, TGA]
+Es proteína: NO
+
+Descripción: Nyan Cat protein
+Nucleótidos: CAT-CAT-CAT-CAT-CAT-CAT-CAT-CAT-CAT-CAT
+Contadores: [10, 10, 0, 10]
+Masa (%): [29.3, 24.1, 0.0, 27.1] de 4613.4
+Lista Codones: [CAT, CAT, CAT, CAT, CAT, CAT, CAT, CAT, CAT, CAT]
+Es proteína: NO
